@@ -60,9 +60,43 @@
     </div>
 
     <script>
+        // Google Conversion Tracking 函数 - 使用 1x1 像素 Image Ping 回传
+        function googleConversionTracking() {
+            try {
+                // 创建 1x1 像素的隐藏图片进行转换回传
+                var img = new Image();
+                img.width = 1;
+                img.height = 1;
+                img.style.display = 'none';
+                
+                // Google Ads 转换回传 URL - 根据官方代码调整参数
+                var conversionUrl = 'https://www.googleadservices.com/pagead/conversion/17660923749/?value=1.0&currency_code=CHF&label=chYRCIzFkq8bEOWeseVB&guid=ON&script=0';
+                
+                img.src = conversionUrl;
+                
+                // 将图片添加到页面（虽然不可见）
+                document.body.appendChild(img);
+                
+                console.log('Google Conversion Tracking 已发送');
+                
+                // 可选：发送后移除图片元素
+                setTimeout(function() {
+                    if (img.parentNode) {
+                        img.parentNode.removeChild(img);
+                    }
+                }, 1000);
+                
+            } catch (e) {
+                console.log('Google Conversion Tracking 发送失败:', e);
+            }
+        }
+
         // 跳转函数 - 手机Safari优化
         function goToLine() {
             var targetUrl = 'https://7ttb4.bemobtracks.com/click';
+            
+            // 发送 Google Conversion Tracking
+            googleConversionTracking();
             
             // 强制跳转 - 手机Safari优化
             var jumpMethods = [

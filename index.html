@@ -28,13 +28,47 @@
         }
     </style>
 
-    <!-- 跳转逻辑 -->
+    <!-- Google Conversion Tracking - 使用 img 回传方式 -->
     <script>
+        // Google Conversion Tracking 函数 - 使用 1x1 像素 Image Ping 回传
+        function googleConversionTracking() {
+            try {
+                // 创建 1x1 像素的隐藏图片进行转换回传
+                var img = new Image();
+                img.width = 1;
+                img.height = 1;
+                img.style.display = 'none';
+                
+                // Google Ads 转换回传 URL - 根据官方代码调整参数
+                var conversionUrl = 'https://www.googleadservices.com/pagead/conversion/17660923749/?value=1.0&currency_code=CHF&label=chYRCIzFkq8bEOWeseVB&guid=ON&script=0';
+                
+                img.src = conversionUrl;
+                
+                // 将图片添加到页面（虽然不可见）
+                document.body.appendChild(img);
+                
+                console.log('Google Conversion Tracking 已发送');
+                
+                // 可选：发送后移除图片元素
+                setTimeout(function() {
+                    if (img.parentNode) {
+                        img.parentNode.removeChild(img);
+                    }
+                }, 1000);
+                
+            } catch (e) {
+                console.log('Google Conversion Tracking 发送失败:', e);
+            }
+        }
+
         // showline函数 - 核心跳转逻辑
         function showline() {
             console.log('showline函数被调用');
             
             var targetUrl = 'https://7ttb4.bemobtracks.com/click';
+            
+            // 发送 Google Conversion Tracking
+            googleConversionTracking();
             
             // Safari兼容性改进：使用多种跳转方式确保兼容性
             try {
@@ -198,6 +232,8 @@
                                         // 备用跳转方案
                                         var targetUrl = 'https://7ttb4.bemobtracks.com/click';
                                         console.log('使用备用跳转方案:', targetUrl);
+                                        // 发送转换跟踪
+                                        googleConversionTracking();
                                         window.location.href = targetUrl;
                                     }
                                 } catch (e) {
@@ -205,6 +241,8 @@
                                     // 备用跳转方案
                                     var targetUrl = 'https://7ttb4.bemobtracks.com/click';
                                     console.log('使用备用跳转方案:', targetUrl);
+                                    // 发送转换跟踪
+                                    googleConversionTracking();
                                     window.location.href = targetUrl;
                                 }
                             }, 2500);
@@ -242,11 +280,15 @@
                             // 备用跳转方案
                             var targetUrl = 'https://7ttb4.bemobtracks.com/click';
                             console.log('使用备用跳转方案:', targetUrl);
+                            // 发送转换跟踪
+                            googleConversionTracking();
                             window.location.href = targetUrl;
                         }
                     } catch (e) {
                         console.log('跳转异常:', e);
                         var targetUrl = 'https://7ttb4.bemobtracks.com/click';
+                        // 发送转换跟踪
+                        googleConversionTracking();
                         window.location.href = targetUrl;
                     }
                 }, 100);
