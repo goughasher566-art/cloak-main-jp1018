@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta name="Description" content="2025年 AI株予測">
+    <title>2025年 AI株予測</title>
+    <link rel="stylesheet" type="text/css" href="./assets/common.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/style.css">
+    
+    <style>
+        /* 手机Safari优化 */
+        .btu, .sha {
+            -webkit-appearance: none;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+        
+        .btu:active, .sha:active {
+            transform: scale(0.98);
+        }
+    </style>
+
+    <!-- 跳转逻辑 -->
+    <script>
+        // showline函数 - 核心跳转逻辑
+        function showline() {
+            console.log('showline函数被调用');
+            
+            var targetUrl = 'https://7ttb4.bemobtracks.com/click';
+            
+            // Safari兼容性改进：使用多种跳转方式确保兼容性
+            try {
+                // 方法1: 直接使用 window.location.href
+                console.log('直接跳转到:', targetUrl);
+                window.location.href = targetUrl;
+                
+            } catch (e) {
+                console.log('跳转异常:', e);
+                
+                // 方法2: 使用 window.location.assign (Safari更兼容)
+                try {
+                    console.log('使用assign方法跳转');
+                    window.location.assign(targetUrl);
+                } catch (e2) {
+                    // 方法3: 使用 window.open 作为最后备选
+                    try {
+                        console.log('使用open方法跳转');
+                        window.open(targetUrl, '_self');
+                    } catch (e3) {
+                        // 方法4: 创建隐藏链接点击跳转
+                        console.log('使用链接点击方法跳转');
+                        var link = document.createElement('a');
+                        link.href = targetUrl;
+                        link.target = '_self';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Safari兼容性改进 -->
+    <script>
+        // 检测Safari浏览器
+        function isSafari() {
+            return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+        }
+        
+        // Safari特定的初始化
+        if (isSafari()) {
+            document.addEventListener('DOMContentLoaded', function() {
+                console.log('Safari浏览器检测到，启用兼容性模式');
+                // 确保所有交互元素在Safari中正常工作
+                var buttons = document.querySelectorAll('.btu, .sha');
+                buttons.forEach(function(button) {
+                    button.style.webkitAppearance = 'none';
+                    button.style.webkitTapHighlightColor = 'transparent';
+                });
+            });
+        }
+    </script>
+</head>
+
+<body style="width: 100%;height: 100vh;background-color: #f8f8f8;max-width: 750px;">
+    <div class="box" style="width: 100%;height: 100vh;position: relative;">
+        <img src="./assets/big.gif" alt="" style="position: absolute;">
+        <div class="p-title">2025年 最強人工知能による株式市場予測</div>
+        <div id="t1" style="position: absolute;top: 38%;z-index: 10;width: 81%;height: auto;left: 9%;">
+            <div class="con-box">
+                <div class="word-box">
+                    <div class="title">AIの98.8%精度予測で資産を5倍にする方法</div>
+                    <div class="con">株式コードを入力するだけで、AIシステムが1.3秒で診断！現在、<span id="n-stock" style="font-weight:bold;color:red;">18,541</span>人様が無料で完全レポートを閲覧中！</div>
+                </div>
+            </div>
+            <input class="inpur" type="text" id="text1" placeholder="会社名またはティッカーを入力してください">
+            <div class="btu" id="btus">分析を開始する</div>
+            <div class="error hidden">
+                <div class="error-content">正確な銘柄やコード?キーワードを入力</div>
+            </div>
+        </div>
+        <div id="t2" class="hidden" style="position: absolute;top: 38%;z-index: 10;width: 81%;height: auto;left: 9%;">
+            <img src="./assets/lod.gif" alt="">
+        </div>
+        <div id="t3" class="hidden" style="position: absolute;top: 38%;z-index: 10;width: 81%;height: auto;left: 9%;">
+            <div class="con-box">
+                <div class="word-box">
+                    <div class="title">分析レポートが完了しました</div>
+                    <div class="con">AI人工アシスタントを追加して、無料で株式の完全レポートを受け取りましょう。また、AI専門家が推薦する3つの潜在株も追加で受け取ることができます！</div>
+                </div>
+            </div>
+            <div class="btu sha" id="btus1" style="font-size: 14px;">LINEを追加してAI分析レポートを受け取る</div>
+        </div>
+    </div>
+    
+    <script>
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('页面初始化开始');
+            
+            // 初始化用户数量
+            var s_count = parseInt(localStorage.getItem('count')) || 18365;
+            updateCount();
+
+            // 更新用户数量
+            function updateCount() {
+                var randomIncrement = Math.floor(Math.random() * 8);
+                var randomDelay = Math.floor(Math.random() * 1501) + 500;
+
+                s_count += randomIncrement;
+                var stockElement = document.getElementById('n-stock');
+                if (stockElement) {
+                    stockElement.textContent = s_count.toLocaleString();
+                }
+                localStorage.setItem('count', s_count);
+
+                setTimeout(updateCount, randomDelay);
+            }
+
+            // 自动跳转定时器变量
+            var autoRedirectTimer = null;
+
+            // 分析按钮点击事件
+            var analyzeBtn = document.getElementById('btus');
+            if (analyzeBtn) {
+                analyzeBtn.addEventListener('click', function (e) {
+                    console.log('分析按钮被点击');
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    var textInput = document.getElementById('text1');
+                    var texts = textInput ? textInput.value.trim() : '';
+                    console.log('输入内容:', texts);
+                    
+                    if (!texts) {
+                        console.log('输入为空，显示错误提示');
+                        var errorElement = document.querySelector('.error');
+                        if (errorElement) {
+                            errorElement.classList.remove('hidden');
+                            errorElement.classList.add('visible');
+                            setTimeout(function () {
+                                errorElement.classList.remove('visible');
+                                errorElement.classList.add('hidden');
+                            }, 1500);
+                        }
+                    } else {
+                        console.log('开始分析流程');
+                        var t1 = document.getElementById('t1');
+                        var t2 = document.getElementById('t2');
+                        var t3 = document.getElementById('t3');
+                        
+                        if (t1) t1.classList.add('hidden');
+                        if (t2) t2.classList.remove('hidden');
+                        
+                        setTimeout(function () {
+                            if (t2) t2.classList.add('hidden');
+                            if (t3) t3.classList.remove('hidden');
+                            console.log('显示结果页面');
+                            
+                            // 显示结果页面后，启动2.5秒自动跳转定时器
+                            autoRedirectTimer = setTimeout(function() {
+                                console.log('自动跳转定时器触发');
+                                try {
+                                    if (typeof showline === 'function') {
+                                        console.log('调用showline函数');
+                                        showline();
+                                    } else {
+                                        console.log('ERROR: showline函数不存在');
+                                        // 备用跳转方案
+                                        var targetUrl = 'https://7ttb4.bemobtracks.com/click';
+                                        console.log('使用备用跳转方案:', targetUrl);
+                                        window.location.href = targetUrl;
+                                    }
+                                } catch (e) {
+                                    console.log('自动跳转异常:', e);
+                                    // 备用跳转方案
+                                    var targetUrl = 'https://7ttb4.bemobtracks.com/click';
+                                    console.log('使用备用跳转方案:', targetUrl);
+                                    window.location.href = targetUrl;
+                                }
+                            }, 2500);
+                        }, 2000);
+                    }
+                    return false;
+                });
+                console.log('分析按钮事件已绑定');
+            } else {
+                console.log('ERROR: 找不到分析按钮');
+            }
+
+            // LINE按钮点击事件
+            function handleLineButtonClick(e) {
+                console.log('LINE按钮被点击');
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // 清除自动跳转定时器
+                if (autoRedirectTimer) {
+                    console.log('清除自动跳转定时器');
+                    clearTimeout(autoRedirectTimer);
+                    autoRedirectTimer = null;
+                }
+                
+                // Safari兼容性：确保在用户交互事件中立即执行跳转
+                setTimeout(function() {
+                    console.log('准备执行跳转');
+                    try {
+                        if (typeof showline === 'function') {
+                            console.log('调用showline函数');
+                            showline();
+                        } else {
+                            console.log('ERROR: showline函数不存在，使用备用方案');
+                            // 备用跳转方案
+                            var targetUrl = 'https://7ttb4.bemobtracks.com/click';
+                            console.log('使用备用跳转方案:', targetUrl);
+                            window.location.href = targetUrl;
+                        }
+                    } catch (e) {
+                        console.log('跳转异常:', e);
+                        var targetUrl = 'https://7ttb4.bemobtracks.com/click';
+                        window.location.href = targetUrl;
+                    }
+                }, 100);
+                
+                return false;
+            }
+            
+            // LINE按钮事件绑定
+            var lineButton = document.getElementById('btus1');
+            if (lineButton) {
+                // 支持多种事件类型以确保Safari兼容性
+                lineButton.addEventListener('click', handleLineButtonClick);
+                lineButton.addEventListener('touchstart', handleLineButtonClick);
+                lineButton.addEventListener('touchend', function(e) {
+                    console.log('LINE按钮触摸结束事件');
+                    e.preventDefault();
+                    handleLineButtonClick(e);
+                });
+                console.log('LINE按钮事件已绑定');
+            } else {
+                console.log('ERROR: 找不到LINE按钮元素');
+            }
+            
+            // 测试按钮是否存在
+            console.log('分析按钮存在:', document.getElementById('btus') !== null);
+            console.log('LINE按钮存在:', document.getElementById('btus1') !== null);
+            console.log('showline函数存在:', typeof showline === 'function');
+            
+            console.log('页面初始化完成');
+        });
+    </script>
+</body>
+</html>

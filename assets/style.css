@@ -1,0 +1,196 @@
+.con-box {
+  position: relative;
+  background-image: url("./con_bg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.con-box .img-box {
+  width: 100%;
+}
+.con-box .img-box img {
+  width: 100%;
+  object-fit: cover;
+}
+.con-box .word-box {
+  padding: 5% 8%;
+  position: relative;
+  z-index: 1;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+.con-box .word-box .title {
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  color: #03267d;
+}
+.con-box .word-box .con {
+  margin-top: 2%;
+  font-size: 20px;
+  color: #27489d;
+}
+.p-title {
+  font-size: 30px;
+  background-image: url("./t_bg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 5% 0px;
+  text-align: center;
+  color: #ffffff;
+  position: absolute;
+  top: 25%;
+  z-index: 10;
+  width: 81%;
+  height: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight:bold;
+}
+@media all and (max-width: 767px) {
+  .p-title {
+    font-size: 24px;
+    top: 27%;
+  }
+  .con-box {
+    position: relative;
+    background-image: url("./con_bg.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  .con-box .img-box {
+    width: 100%;
+  }
+  .con-box .img-box img {
+    width: 100%;
+    object-fit: cover;
+  }
+  .con-box .word-box {
+    padding: 8% 6%;
+    position: relative;
+    z-index: 1;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+  }
+  .con-box .word-box .title {
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .con-box .word-box .con {
+    font-size: 14px;
+  }
+}
+ * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .inpur {
+            width: 100%;
+            height: 8%;
+            border-radius: 2rem;
+            border: 2px solid rgba(78, 147, 234, 1);
+            margin-top: 1rem;
+            padding: 1rem 2rem;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .btu {
+            margin-top: 20px;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            display: block;
+            background-color: #1A6BFF;
+            border-radius: 2rem;
+            text-align: center;
+            color: #ffffff;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Safari兼容性改进 */
+            -webkit-appearance: none;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            border: none;
+            outline: none;
+        }
+
+        .error {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            z-index: 99999;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .error-content {
+            padding: 30px;
+            line-height: 1.5;
+            word-break: break-all;
+            overflow: auto;
+            font-size: 18px;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            max-width: 80%;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .sha {
+            display: block;
+            background-color: #1A6BFF;
+            border-radius: 2rem;
+            text-align: center;
+            color: #ffffff;
+            cursor: pointer;
+            animation-name: moveButton;
+            animation-duration: 1.5s;
+            animation-iteration-count: infinite;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Safari兼容性改进 */
+            -webkit-appearance: none;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            border: none;
+            outline: none;
+        }
+
+        @keyframes moveButton {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .visible {
+            display: block;
+        }

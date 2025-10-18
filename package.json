@@ -1,0 +1,26 @@
+{
+  "name": "xtl1016-vercel",
+  "version": "1.0.0",
+  "description": "AI股票预测落地页 - Vercel部署版本",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Static site - no build required'",
+    "start": "vercel dev"
+  },
+  "keywords": [
+    "ai",
+    "stock",
+    "prediction",
+    "landing-page",
+    "vercel"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  }
+}

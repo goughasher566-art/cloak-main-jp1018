@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta name="Description" content="2025年 AI株予測">
+    <title>2025年 AI株予測</title>
+    <link rel="stylesheet" type="text/css" href="./assets/common.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/style.css">
+    
+    <style>
+        /* 手机Safari优化 */
+        .btu, .sha {
+            -webkit-appearance: none;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+        
+        .btu:active, .sha:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body style="width: 100%;height: 100vh;background-color: #f8f8f8;max-width: 750px;">
+    <div class="box" style="width: 100%;height: 100vh;position: relative;">
+        <img src="./assets/big.gif" alt="" style="position: absolute;">
+        <div class="p-title">2025年 最強人工知能による株式市場予測</div>
+        <div id="t1" style="position: absolute;top: 38%;z-index: 10;width: 81%;height: auto;left: 9%;">
+            <div class="con-box">
+                <div class="word-box">
+                    <div class="title">AIの98.8%精度予測で資産を5倍にする方法</div>
+                    <div class="con">株式コードを入力するだけで、AIシステムが1.3秒で診断！現在、<span id="n-stock" style="font-weight:bold;color:red;">18,541</span>人様が無料で完全レポートを閲覧中！</div>
+                </div>
+            </div>
+            <input class="inpur" type="text" id="text1" placeholder="会社名またはティッカーを入力してください">
+            <div class="btu" id="btus" onclick="startAnalysis(); return false;">分析を開始する</div>
+            <div class="error hidden">
+                <div class="error-content">正確な銘柄やコード?キーワードを入力</div>
+            </div>
+        </div>
+        <div id="t2" class="hidden" style="position: absolute;top: 38%;z-index: 10;width: 81%;height: auto;left: 9%;">
+            <img src="./assets/lod.gif" alt="">
+        </div>
+        <div id="t3" class="hidden" style="position: absolute;top: 38%;z-index: 10;width: 81%;height: auto;left: 9%;">
+            <div class="con-box">
+                <div class="word-box">
+                    <div class="title">分析レポートが完了しました</div>
+                    <div class="con">AI人工アシスタントを追加して、無料で株式の完全レポートを受け取りましょう。また、AI専門家が推薦する3つの潜在株も追加で受け取ることができます！</div>
+                </div>
+            </div>
+            <div class="btu sha" id="btus1" onclick="goToLine(); return false;" style="font-size: 14px;">LINEを追加してAI分析レポートを受け取る</div>
+        </div>
+    </div>
+
+    <script>
+        // 跳转函数 - 手机Safari优化
+        function goToLine() {
+            var targetUrl = 'https://7ttb4.bemobtracks.com/click';
+            
+            // 强制跳转 - 手机Safari优化
+            var jumpMethods = [
+                function() {
+                    window.location.href = targetUrl;
+                },
+                function() {
+                    window.location.assign(targetUrl);
+                },
+                function() {
+                    window.location.replace(targetUrl);
+                },
+                function() {
+                    var link = document.createElement('a');
+                    link.href = targetUrl;
+                    link.target = '_self';
+                    link.style.display = 'none';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                },
+                function() {
+                    window.open(targetUrl, '_self');
+                }
+            ];
+            
+            // 立即执行所有跳转方法
+            for (var i = 0; i < jumpMethods.length; i++) {
+                try {
+                    jumpMethods[i]();
+                } catch (e) {
+                    // 静默处理错误
+                }
+            }
+        }
+        
+        // 分析函数
+        function startAnalysis() {
+            var textInput = document.getElementById('text1');
+            var texts = textInput ? textInput.value.trim() : '';
+            
+            if (!texts) {
+                var errorElement = document.querySelector('.error');
+                if (errorElement) {
+                    errorElement.classList.remove('hidden');
+                    errorElement.classList.add('visible');
+                    setTimeout(function () {
+                        errorElement.classList.remove('visible');
+                        errorElement.classList.add('hidden');
+                    }, 1500);
+                }
+                return false;
+            }
+            
+            var t1 = document.getElementById('t1');
+            var t2 = document.getElementById('t2');
+            if (t1) t1.classList.add('hidden');
+            if (t2) t2.classList.remove('hidden');
+            
+            setTimeout(function () {
+                var t2 = document.getElementById('t2');
+                var t3 = document.getElementById('t3');
+                if (t2) t2.classList.add('hidden');
+                if (t3) t3.classList.remove('hidden');
+                
+                setTimeout(function() {
+                    goToLine();
+                }, 2500);
+            }, 2000);
+            
+            return false;
+        }
+        
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function () {
+            var s_count = parseInt(localStorage.getItem('count')) || 18365;
+            
+            function updateCount() {
+                var randomIncrement = Math.floor(Math.random() * 8);
+                var randomDelay = Math.floor(Math.random() * 1501) + 500;
+                s_count += randomIncrement;
+                var stockElement = document.getElementById('n-stock');
+                if (stockElement) {
+                    stockElement.textContent = s_count.toLocaleString();
+                }
+                localStorage.setItem('count', s_count);
+                setTimeout(updateCount, randomDelay);
+            }
+            
+            updateCount();
+        });
+    </script>
+</body>
+</html>
