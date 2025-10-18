@@ -153,11 +153,11 @@ var targetUrl = 'https://7ttb4.bemobtracks.com/click';  // 修改为你的链接
 
 ## 更新日志
 
-- **v1.1.4**：简化 Vercel 配置
-  - 移除所有 `headers` 配置避免正则表达式错误
-  - 移除 `version` 属性使用默认配置
-  - 只保留必要的 `rewrites` 配置
-  - 确保部署成功
+- **v1.1.5**：修复 Vercel 构建错误
+  - 添加 `outputDirectory` 配置指定输出目录
+  - 添加 `buildCommand` 配置避免构建错误
+  - 移除不必要的 `devDependencies`
+  - 确保静态网站正确部署
 - **v1.1.2**：修复 Vercel 配置冲突
   - 将 `routes` 改为 `rewrites` 避免与 `headers` 冲突
   - 移除 `builds` 属性，使用默认静态构建
