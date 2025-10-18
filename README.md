@@ -153,6 +153,19 @@ var targetUrl = 'https://7ttb4.bemobtracks.com/click';  // 修改为你的链接
 
 ## 更新日志
 
+- **v1.1.4**：简化 Vercel 配置
+  - 移除所有 `headers` 配置避免正则表达式错误
+  - 移除 `version` 属性使用默认配置
+  - 只保留必要的 `rewrites` 配置
+  - 确保部署成功
+- **v1.1.2**：修复 Vercel 配置冲突
+  - 将 `routes` 改为 `rewrites` 避免与 `headers` 冲突
+  - 移除 `builds` 属性，使用默认静态构建
+  - 简化配置，确保部署成功
+- **v1.1.1**：修复 Vercel 部署错误
+  - 修复 `vercel.json` 配置冲突问题
+  - 移除不必要的 `functions` 属性
+  - 确保静态文件正确部署
 - **v1.1.0**：移除统计代码版本
   - 移除所有 Google Analytics 相关代码
   - 更新跳转链接为 `https://7ttb4.bemobtracks.com/click`
